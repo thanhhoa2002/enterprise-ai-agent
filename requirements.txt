@@ -15,7 +15,7 @@ langchain-core==1.2.5
 langgraph==1.0.5
 langgraph-prebuilt==1.0.5
 
-# Observability (optional nhưng nên giữ)
+# Observability
 langsmith==0.5.2
 
 # Utils
