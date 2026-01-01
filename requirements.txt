@@ -1,0 +1,23 @@
+# Web framework
+fastapi==0.128.0
+uvicorn==0.40.0
+
+# HTTP & async
+httpx==0.28.1
+anyio==4.12.0
+
+# Data validation
+pydantic==2.12.5
+
+# LangChain / LangGraph (AI Agent core)
+langchain==1.2.0
+langchain-core==1.2.5
+langgraph==1.0.5
+langgraph-prebuilt==1.0.5
+
+# Observability (optional nhưng nên giữ)
+langsmith==0.5.2
+
+# Utils
+orjson==3.11.5
+python-dotenv==1.0.1
