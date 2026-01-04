@@ -1,5 +1,7 @@
+from turtle import st
 from app.rag.retriever import retrieve_context
 from app.agent.semantic_reasoner import semantic_need_rag
+from app.agent.llm_generator import generate_answer
 
 def reason_node(state):
     state.need_rag = semantic_need_rag(state.user_query)
@@ -11,12 +13,8 @@ def rag_node(state):
     return state
 
 def final_node(state):
-    if state.context:
-        state.final_answer = (
-            f"Based on internal documents:\n{state.context}"
-        )
-    else:
-        state.final_answer = (
-            "This is a general question; there's no need to access an internal document."
-        )
+    state.final_answer = generate_answer(
+        query = state.user_query,
+        context = state.context
+    )
     return state
