@@ -1,13 +1,19 @@
 from fastapi import APIRouter
 from app.rag.ingest import ingest_documents
 from app.rag.retriever import retrieve_context
+from app.agent.graph import build_agent_graph
+from app.agent.state import AgentState
 
 router = APIRouter(prefix="/api")
 
+agent = build_agent_graph()
+
 @router.post("/agent/chat")
-def agent_chat():
+def agent_chat(query: str):
+    state = AgentState(user_query=query)
+    result = agent.invoke(state)
     return {
-        "message": "AI Agent is not implemented yet"
+        "answer": result.get("final_answer")
     }
     
 @router.post("/rag/ingest")
