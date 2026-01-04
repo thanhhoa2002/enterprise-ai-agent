@@ -1,18 +1,8 @@
 from app.rag.retriever import retrieve_context
+from app.agent.semantic_reasoner import semantic_need_rag
 
 def reason_node(state):
-    query = state.user_query.lower()
-    
-    keywords = [
-        "policy",
-        "leave",
-        "remote",
-        "termination",
-        "working",
-        "security"
-    ]
-    
-    state.need_rag = any(k in query for k in keywords)
+    state.need_rag = semantic_need_rag(state.user_query)
     return state
 
 def rag_node(state):
