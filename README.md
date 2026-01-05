@@ -17,7 +17,7 @@ User → API → Agent → Tool → Response
 3. Agent selects an appropriate tool:
    - Document search (RAG)
    - Database query (pending)
-   - Anomaly detection (pending)
+   - ...
 4. Tool executes and returns results
 5. Agent synthesizes the final answer
 
